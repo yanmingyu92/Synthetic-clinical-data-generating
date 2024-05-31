@@ -1,0 +1,177 @@
+{
+    "datasets": [
+      {
+        "name": "ADSL",
+        "description": "Subject-Level Analysis",
+        "class": "ADSL",
+        "structure": "one record per subject",
+        "keys": ["USUBJID"],
+        "location": "adsl.xpt",
+        "variables": [
+          {"name": "STUDYID", "label": "Study Identifier", "type": "text", "length": 12, "source": "DM.STUDYID"},
+          {"name": "USUBJID", "label": "Unique Subject Identifier", "type": "text", "length": 11, "source": "DM.USUBJID"},
+          {"name": "SUBJID", "label": "Subject Identifier for the Study", "type": "text", "length": 4, "source": "DM.SUBJID"},
+          {"name": "SITEID", "label": "Study Site Identifier", "type": "text", "length": 3, "source": "DM.SITEID"},
+          {"name": "SITEGR1", "label": "Pooled Site Group 1", "type": "text", "length": 3, "source": "Refer to SAP, Section 7.1"},
+          {"name": "ARM", "label": "Description of Planned Arm", "type": "text", "length": 20, "source": "DM.ARM"},
+          {"name": "TRT01P", "label": "Planned Treatment for Period 01", "type": "text", "length": 20, "source": "DM.ARM"},
+          {"name": "TRT01PN", "label": "Planned Treatment for Period 01 (N)", "type": "integer", "length": 8, "source": "Numeric code for TRT01P"},
+          {"name": "TRT01A", "label": "Actual Treatment for Period 01", "type": "text", "length": 20, "source": "TRT01A=TRT01P"},
+          {"name": "TRT01AN", "label": "Actual Treatment for Period 01 (N)", "type": "integer", "length": 8, "source": "Numeric code for TRT01A"},
+          {"name": "TRTSDT", "label": "Date of First Exposure to Treatment", "type": "integer", "length": 8, "source": "SV.SVSTDTC"},
+          {"name": "TRTEDT", "label": "Date of Last Exposure to Treatment", "type": "integer", "length": 8, "source": "EX.EXENDTC"},
+          {"name": "TRTDUR", "label": "Duration of Treatment (days)", "type": "integer", "length": 8, "source": "TRTEDT-TRTSDT+1"},
+          {"name": "AVGDD", "label": "Avg Daily Dose (as planned)", "type": "float", "length": 8, "source": "CUMDOSE/TRTDUR"},
+          {"name": "CUMDOSE", "label": "Cumulative Dose (as planned)", "type": "float", "length": 8, "source": "ARMN logic"},
+          {"name": "AGE", "label": "Age", "type": "integer", "length": 8, "source": "DM.AGE"},
+          {"name": "AGEGR1", "label": "Pooled Age Group 1", "type": "text", "length": 5, "source": "AGEGR1 logic"},
+          {"name": "AGEGR1N", "label": "Pooled Age Group 1 (N)", "type": "integer", "length": 8, "source": "AGEGR1N logic"},
+          {"name": "AGEU", "label": "Age Units", "type": "text", "length": 5, "source": "DM.AGEU"},
+          {"name": "RACE", "label": "Race", "type": "text", "length": 32, "source": "DM.RACE"},
+          {
+            "name": "RACEN",
+            "label": "Race (N)",
+            "type": "integer",
+            "length": 8,
+            "source": "Numeric code for RACE",
+            "code_list": [
+              {"code": 1, "decode": "White"},
+              {"code": 2, "decode": "Black or African American"},
+              {"code": 3, "decode": "Asian"},
+              {"code": 4, "decode": "American Indian or Alaska Native"},
+              {"code": 5, "decode": "Native Hawaiian or Other Pacific Islander"},
+              {"code": 6, "decode": "Other"}
+            ]
+          },
+          {"name": "SEX", "label": "Sex", "type": "text", "length": 1, "source": "DM.SEX"},
+          {
+            "name": "ETHNIC",
+            "label": "Ethnicity",
+            "type": "text",
+            "length": 22,
+            "source": "DM.ETHNIC",
+            "code_list": [
+              {"code": "HISPANIC", "decode": "Hispanic or Latino"},
+              {"code": "NOT_HISPANIC", "decode": "Not Hispanic or Latino"}
+            ]
+          },
+          {
+            "name": "SAFFL",
+            "label": "Safety Population Flag",
+            "type": "text",
+            "length": 1,
+            "source": "Y/N logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "ITTFL",
+            "label": "Intent-To-Treat Population Flag",
+            "type": "text",
+            "length": 1,
+            "source": "Y/N logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "EFFFL",
+            "label": "Efficacy Population Flag",
+            "type": "text",
+            "length": 1,
+            "source": "Y/N logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "COMP8FL",
+            "label": "Completers of Week 8 Population Flag",
+            "type": "text",
+            "length": 1,
+            "source": "Y/N logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "COMP16FL",
+            "label": "Completers of Week 16 Population Flag",
+            "type": "text",
+            "length": 1,
+            "source": "Y/N logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "COMP24FL",
+            "label": "Completers of Week 24 Population Flag",
+            "type": "text",
+            "length": 1,
+            "source": "Y/N logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "DISCONFL",
+            "label": "Did the Subject Discontinue the Study?",
+            "type": "text",
+            "length": 1,
+            "source": "Y/N logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "DSRAEFL",
+            "label": "Discontinued due to AE?",
+            "type": "text",
+            "length": 1,
+            "source": "Y/N logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "DTHFL",
+            "label": "Subject Died?",
+            "type": "text",
+            "length": 1,
+            "source": "Y/N logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {"name": "BMIBL", "label": "Baseline BMI (kg/m^2)", "type": "float", "length": 8, "source": "BMI calculation"},
+          {"name": "BMIBLGR1", "label": "Pooled Baseline BMI Group 1", "type": "text", "length": 6, "source": "BMI group logic"},
+          {"name": "HEIGHTBL", "label": "Baseline Height (cm)", "type": "float", "length": 8, "source": "VSSTRESN"},
+          {"name": "WEIGHTBL", "label": "Baseline Weight (kg)", "type": "float", "length": 8, "source": "VSSTRESN"},
+          {"name": "EDUCLVL", "label": "Years of Education", "type": "integer", "length": 8, "source": "SCSTRESN"},
+          {"name": "DISONSDT", "label": "Date of Onset of Disease", "type": "integer", "length": 8, "source": "MHSTDTC"},
+          {"name": "DURDIS", "label": "Duration of Disease (Months)", "type": "float", "length": 8, "source": "Duration calculation"},
+          {"name": "DURDSGR1", "label": "Pooled Disease Duration Group 1", "type": "text", "length": 4, "source": "Duration group logic"},
+          {"name": "VISIT1DT", "label": "Date of Visit 1", "type": "integer", "length": 8, "source": "SVSTDTC"},
+          {"name": "RFSTDTC", "label": "Subject Reference Start Date/Time", "type": "datetime", "length": 20, "source": "DM.RFSTDTC"},
+          {"name": "RFENDTC", "label": "Subject Reference End Date/Time", "type": "datetime", "length": 20, "source": "DM.RFENDTC"},
+          {"name": "VISNUMEN", "label": "End of Trt Visit (Vis 12 or Early Term.)", "type": "integer", "length": 8, "source": "VISNUMEN logic"},
+          {"name": "RFENDT", "label": "Date of Discontinuation/Completion", "type": "integer", "length": 8, "source": "RFENDTC"},
+          {"name": "DCDECOD", "label": "Standardized Disposition Term", "type": "text", "length": 27, "source": "DSDECOD"},
+          {"name": "DCREASCD", "label": "Reason for Discontinuation", "type": "text", "length": 18, "source": "DCDECOD group logic"},
+          {"name": "MMSETOT", "label": "MMSE Total", "type": "integer", "length": 8, "source": "QSORRES sum"}
+        ]
+      }
+    ]
+  }
+  

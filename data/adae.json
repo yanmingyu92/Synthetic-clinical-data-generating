@@ -1,0 +1,254 @@
+{
+    "datasets": [
+      {
+        "name": "ADAE",
+        "description": "Adverse Events Analysis Dataset",
+        "class": "ADAE",
+        "structure": "one record per subject per adverse event",
+        "keys": ["USUBJID", "AETERM", "ASTDT", "AESEQ"],
+        "location": "adae.xpt",
+        "variables": [
+          {"name": "STUDYID", "label": "Study Identifier", "type": "text", "length": 12, "source": "ADSL.STUDYID"},
+          {"name": "SITEID", "label": "Study Site Identifier", "type": "text", "length": 3, "source": "ADSL.SITEID"},
+          {"name": "USUBJID", "label": "Unique Subject Identifier", "type": "text", "length": 11, "source": "ADSL.USUBJID"},
+          {"name": "TRTA", "label": "Actual Treatment", "type": "text", "length": 20, "source": "ADSL.TRT01A"},
+          {"name": "TRTAN", "label": "Actual Treatment (N)", "type": "integer", "length": 8, "source": "ADSL.TRT01AN"},
+          {"name": "AGE", "label": "Age", "type": "integer", "length": 8, "source": "ADSL.AGE"},
+          {"name": "AGEGR1", "label": "Pooled Age Group 1", "type": "text", "length": 5, "source": "ADSL.AGEGR1"},
+          {"name": "AGEGR1N", "label": "Pooled Age Group 1 (N)", "type": "integer", "length": 8, "source": "ADSL.AGEGR1N"},
+          {"name": "RACE", "label": "Race", "type": "text", "length": 32, "source": "ADSL.RACE"},
+          {
+            "name": "RACEN",
+            "label": "Race (N)",
+            "type": "integer",
+            "length": 8,
+            "source": "ADSL.RACEN",
+            "code_list": [
+              {"code": 1, "decode": "White"},
+              {"code": 2, "decode": "Black or African American"},
+              {"code": 3, "decode": "Asian"},
+              {"code": 4, "decode": "American Indian or Alaska Native"},
+              {"code": 5, "decode": "Native Hawaiian or Other Pacific Islander"},
+              {"code": 6, "decode": "Other"}
+            ]
+          },
+          {"name": "SEX", "label": "Sex", "type": "text", "length": 1, "source": "ADSL.SEX"},
+          {
+            "name": "SAFFL",
+            "label": "Safety Population Flag",
+            "type": "text",
+            "length": 1,
+            "source": "ADSL.SAFFL",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {"name": "TRTSDT", "label": "Date of First Exposure to Treatment", "type": "integer", "length": 8, "source": "ADSL.TRTSDT"},
+          {"name": "TRTEDT", "label": "Date of Last Exposure to Treatment", "type": "integer", "length": 8, "source": "ADSL.TRTEDT"},
+          {"name": "ASTDT", "label": "Analysis Start Date", "type": "integer", "length": 8, "source": "AE.AESTDTC"},
+          {"name": "ASTDTF", "label": "Analysis Start Date Imputation Flag", "type": "text", "length": 1, "source": "ASTDTF logic"},
+          {"name": "ASTDY", "label": "Analysis Start Relative Day", "type": "integer", "length": 8, "source": "ASTDY logic"},
+          {"name": "AENDT", "label": "Analysis End Date", "type": "integer", "length": 8, "source": "AE.AEENDTC"},
+          {"name": "AENDY", "label": "Analysis End Relative Day", "type": "integer", "length": 8, "source": "AENDY logic"},
+          {"name": "ADURN", "label": "AE Duration (N)", "type": "integer", "length": 8, "source": "ADURN logic"},
+          {"name": "ADURU", "label": "AE Duration Units", "type": "text", "length": 3, "source": "ADURU logic"},
+          {"name": "AETERM", "label": "Reported Term for the Adverse Event", "type": "text", "length": 46, "source": "AE.AETERM"},
+          {"name": "AELLT", "label": "Lowest Level Term", "type": "text", "length": 46, "source": "AE.AELLT"},
+          {"name": "AELLTCD", "label": "Lowest Level Term Code", "type": "integer", "length": 8, "source": "AE.AELLTCD"},
+          {"name": "AEDECOD", "label": "Dictionary-Derived Term", "type": "text", "length": 46, "source": "AE.AEDECOD"},
+          {"name": "AEPTCD", "label": "Preferred Term Code", "type": "integer", "length": 8, "source": "AE.AEPTCD"},
+          {"name": "AEHLT", "label": "High Level Term", "type": "text", "length": 8, "source": "AE.AEHLT"},
+          {"name": "AEHLTCD", "label": "High Level Term Code", "type": "integer", "length": 8, "source": "AE.AEHLTCD"},
+          {"name": "AEHLGT", "label": "High Level Group Term", "type": "text", "length": 9, "source": "AE.AEHLGT"},
+          {"name": "AEHLGTCD", "label": "High Level Group Term Code", "type": "integer", "length": 8, "source": "AE.AEHLGTCD"},
+          {"name": "AEBODSYS", "label": "Body System or Organ Class", "type": "text", "length": 67, "source": "AE.AEBODSYS"},
+          {"name": "AESOC", "label": "Primary System Organ Class", "type": "text", "length": 67, "source": "AE.AESOC"},
+          {"name": "AESOCCD", "label": "Primary System Organ Class Code", "type": "integer", "length": 8, "source": "AE.AESOCCD"},
+          {"name": "AESEV", "label": "Severity/Intensity", "type": "text", "length": 8, "source": "AE.AESEV"},
+          {
+            "name": "AESER",
+            "label": "Serious Event",
+            "type": "text",
+            "length": 1,
+            "source": "AE.AESER",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AESCAN",
+            "label": "Involves Cancer",
+            "type": "text",
+            "length": 1,
+            "source": "AE.AESCAN",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AESCONG",
+            "label": "Congenital Anomaly or Birth Defect",
+            "type": "text",
+            "length": 1,
+            "source": "AE.AESCONG",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AESDISAB",
+            "label": "Persist or Signif Disability/Incapacity",
+            "type": "text",
+            "length": 1,
+            "source": "AE.AESDISAB",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AESDTH",
+            "label": "Results in Death",
+            "type": "text",
+            "length": 1,
+            "source": "AE.AESDTH",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AESHOSP",
+            "label": "Requires or Prolongs Hospitalization",
+            "type": "text",
+            "length": 1,
+            "source": "AE.AESHOSP",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AESLIFE",
+            "label": "Is Life Threatening",
+            "type": "text",
+            "length": 1,
+            "source": "AE.AESLIFE",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AESOD",
+            "label": "Occurred with Overdose",
+            "type": "text",
+            "length": 1,
+            "source": "AE.AESOD",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {"name": "AEREL", "label": "Causality", "type": "text", "length": 8, "source": "AE.AEREL"},
+          {"name": "AEACN", "label": "Action Taken with Study Treatment", "type": "text", "length": 1, "source": "AE.AEACN"},
+          {"name": "AEOUT", "label": "Outcome of Adverse Event", "type": "text", "length": 26, "source": "AE.AEOUT"},
+          {"name": "AESEQ", "label": "Sequence Number", "type": "integer", "length": 8, "source": "AE.AESEQ"},
+          {
+            "name": "TRTEMFL",
+            "label": "Treatment Emergent Analysis Flag",
+            "type": "text",
+            "length": 1,
+            "source": "TRTEMFL logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AOCCFL",
+            "label": "1st Occurrence of Any AE Flag",
+            "type": "text",
+            "length": 1,
+            "source": "AOCCFL logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AOCCSFL",
+            "label": "1st Occurrence of SOC Flag",
+            "type": "text",
+            "length": 1,
+            "source": "AOCCSFL logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AOCCPFL",
+            "label": "1st Occurrence of Preferred Term Flag",
+            "type": "text",
+            "length": 1,
+            "source": "AOCCPFL logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AOCC02FL",
+            "label": "1st Occurrence 02 Flag for Serious",
+            "type": "text",
+            "length": 1,
+            "source": "AOCC02FL logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AOCC03FL",
+            "label": "1st Occurrence 03 Flag for Serious SOC",
+            "type": "text",
+            "length": 1,
+            "source": "AOCC03FL logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {
+            "name": "AOCC04FL",
+            "label": "1st Occurrence 04 Flag for Serious PT",
+            "type": "text",
+            "length": 1,
+            "source": "AOCC04FL logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          },
+          {"name": "CQ01NAM", "label": "Customized Query 01 Name", "type": "text", "length": 19, "source": "CQ01NAM logic"},
+          {
+            "name": "AOCC01FL",
+            "label": "1st Occurrence 01 Flag for CQ01",
+            "type": "text",
+            "length": 1,
+            "source": "AOCC01FL logic",
+            "code_list": [
+              {"code": "Y", "decode": "Yes"},
+              {"code": "N", "decode": "No"}
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
